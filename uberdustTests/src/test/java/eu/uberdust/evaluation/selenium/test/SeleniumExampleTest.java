@@ -20,6 +20,7 @@ public class SeleniumExampleTest
     }
 
     public void testSomethingSimple() throws Exception {
+		final String pspaceURL  = "http://pspace.dyndns.org:8080/uberdust";
         selenium = createSeleniumClient("http://uberdust.cti.gr");
         selenium.start();
 
@@ -27,9 +28,12 @@ public class SeleniumExampleTest
         HashMap<String, Long> pagesTime = new HashMap<String, Long>();
         pagesToTest.add("http://uberdust.cti.gr");
         pagesToTest.add("http://uberdust.cti.gr");
+        pagesToTest.add(pspaceURL);
         pagesToTest.add("http://uberdust.cti.gr/rest/testbed/1");
         pagesToTest.add("http://uberdust.cti.gr/rest/testbed/2");
         pagesToTest.add("http://uberdust.cti.gr/rest/testbed/3");
+        pagesToTest.add(pspaceURL+"/rest/testbed/2");
+
         String single = "http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:0x9979/";
         pagesToTest.add(single);
         pagesToTest.add(single + "capability/urn:wisebed:node:capability:pir/latestreading");
@@ -45,6 +49,14 @@ public class SeleniumExampleTest
         pagesToTest.add(virtual + "capability/urn:wisebed:node:capability:pir/html/limit/10");
         pagesToTest.add(virtual + "capability/urn:wisebed:node:capability:pir/tabdelimited/limit/10");
 //        pagesToTest.add(virtual+"capability/urn:wisebed:node:capability:pir/json/limit/10");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:0x2eb/");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:0x2eb/capability/urn:node:capability:light1/latestreading");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:0x2eb/capability/urn:node:capability:light1/html/limit/10");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:0x2eb/capability/urn:node:capability:light1/tabdelimited/limit/10");        
+		pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:virtual:ROOM1/");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:virtual:ROOM1/capability/urn:node:capability:light1/latestreading");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:virtual:ROOM1/capability/urn:node:capability:light1/html/limit/10");
+        pagesToTest.add(pspaceURL + "/rest/testbed/2/node/urn:pspace:virtual:ROOM1/capability/urn:node:capability:light1/tabdelimited/limit/10");        
 
         for (String page : pagesToTest) {
             long time = 0;
