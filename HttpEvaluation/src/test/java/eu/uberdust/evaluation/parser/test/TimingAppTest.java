@@ -70,19 +70,22 @@ public class TimingAppTest {
         LOGGER.info("plottingTest");
 
         //LOAD HOME PAGE
-        listTestbedTests("Home Page-http://uberdust.cti.gr", "home.png");
+        listTestbedTests("CTI Home Page-http://uberdust.cti.gr,PSpace Home Page-http://pspace.dyndns.org:8080/uberdust", "home.png");
 
         //LOAD TESTBEDS
-        listTestbedTests("TBed1-http://uberdust.cti.gr/rest/testbed/1,TBed2-http://uberdust.cti.gr/rest/testbed/2,TBed3-http://uberdust.cti.gr/rest/testbed/3", "testbeds.png");
+        listTestbedTests("TBed1-http://uberdust.cti.gr/rest/testbed/1,TBed2-http://uberdust.cti.gr/rest/testbed/2,TBed3-http://uberdust.cti.gr/rest/testbed/3,PSpace TBed-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2", "testbeds.png");
 
         //LOAD NODES
         listTestbedTests("Virtual Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:virtual:0.I.9/,Hardware Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:0x9979/", "nodes.png");
+        listTestbedTests("Virtual Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:virtual:ROOM1/,Hardware Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:0x2eb/", "nodes-p.png");
 
         //LOAD SINGLE READING
         listTestbedTests("Virtual Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:virtual:0.I.9/capability/urn:wisebed:node:capability:pir/latestreading,Hardware Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:0x9979/capability/urn:wisebed:node:capability:pir/latestreading", "single.png");
+        listTestbedTests("Virtual Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:virtual:ROOM1/capability/urn:node:capability:light1/latestreading,Hardware Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:0x2eb/capability/urn:node:capability:light1/latestreading", "single-p.png");
 
         //LOAD MULTIPLE READINGS
         listTestbedTests("Virtual Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:virtual:0.I.9/capability/urn:wisebed:node:capability:pir/tabdelimited/limit/10,Hardware Node-http://uberdust.cti.gr/rest/testbed/1/node/urn:wisebed:ctitestbed:0x9979/capability/urn:wisebed:node:capability:pir/tabdelimited/limit/10", "multiple.png");
+        listTestbedTests("Virtual Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:virtual:ROOM1/capability/urn:node:capability:light1/tabdelimited/limit/10,Hardware Node-http://pspace.dyndns.org:8080/uberdust/rest/testbed/2/node/urn:pspace:0x2eb/capability/urn:node:capability:light1/tabdelimited/limit/10", "multiple-p.png");
 
     }
 
@@ -136,7 +139,8 @@ public class TimingAppTest {
 
         axis.setDateFormatOverride(new SimpleDateFormat("d-M HH:mm"));
         try {
-            ChartUtilities.saveChartAsPNG(new File(title), chart, 800, 600);
+
+            ChartUtilities.saveChartAsPNG(new File(title), chart, 600, 400);
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
