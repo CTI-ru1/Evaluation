@@ -28,7 +28,7 @@ public class SeleniumExampleTest
     public void testSomethingSimple() throws Exception {
         selenium = createSeleniumClient("http://uberdust.cti.gr");
         selenium.start();
-        selenium.setTimeout("60000");
+        selenium.setTimeout("20000");
 
         //LOAD the pages to test
         initPages();
