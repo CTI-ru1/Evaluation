@@ -116,7 +116,7 @@ public class SeleniumExampleTest
                 selenium.open(url);
             } catch (SeleniumException e) {
                 System.out.println("SELENIUM TIMEOUT REACHED in" + url);
-                continue;
+                break;
             }
             selenium.waitForPageToLoad("120000");
             totalTime += (System.currentTimeMillis() - start);
